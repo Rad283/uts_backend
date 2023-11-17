@@ -13,7 +13,7 @@ class PatientsController extends Controller
      */
     public function index(patients $patients)
     {
-
+        // mendapatkan semua data pasien
         $getPatients = $patients->all();
 
         // jika data pasien tidak kosong
@@ -34,7 +34,7 @@ class PatientsController extends Controller
                 'message' => "Index | data pasien kosong"
             ];
 
-            return response()->json($data, 404);
+            return response()->json($data, 200);
         }
     }
 
