@@ -21,7 +21,7 @@ class SearchController extends Controller
                 'message' => "search | berhasil menemukan nama: $name",
                 'data' => $getPatients
             ];
-            // mengirim respon berhasil dan data
+
             return response()->json($data, 200);
         }
 

@@ -13,13 +13,12 @@ class PatientsController extends Controller
      */
     public function index(patients $patients)
     {
-        // mengambil semua data pasien
+
         $getPatients = $patients->all();
 
         // jika data pasien tidak kosong
         if ($getPatients->isNotEmpty()) {
 
-            // mengatur data yang akan dikirim
             $data = [
                 "message" => "Index | menampilkan semua data pasien",
                 "data" => $getPatients
@@ -35,7 +34,6 @@ class PatientsController extends Controller
                 'message' => "Index | data pasien kosong"
             ];
 
-            // mengirim respon data kosong
             return response()->json($data, 404);
         }
     }
@@ -80,12 +78,11 @@ class PatientsController extends Controller
         // jika data pasien ditemukan
         if ($getPatients) {
 
-
             $data = [
                 'message' => "Show | detail dari pasien dengan id: $id",
                 "data" => $getPatients
             ];
-            // mengirim data dan respon berhasil
+
             return response()->json($data, 200);
         }
 
@@ -132,14 +129,13 @@ class PatientsController extends Controller
                 'status' => $validated['status'] ?? $getPatients->status,
                 'in_date_at' => $validated['in_date_at'] ?? $getPatients->in_date_at,
                 'out_date_at' => $validated['out_date_at'] ?? $getPatients->out_date_at,
-
             ]);
 
             $data = [
                 'message' => "Update | berhasil mengupdate data",
                 "data" => $getPatients
             ];
-            // mengirim respon berhasil dan data yang diupdate
+
             return response()->json($data, 200);
         }
 

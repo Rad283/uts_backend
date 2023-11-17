@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-// group semua route dengan middleware sanctum
+// group route yang menggunakan middleware sanctum
 Route::middleware('auth:sanctum')->group(function () {
 
     // mengroup route dengan controller yang sama, yaitu PatientsController
